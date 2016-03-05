@@ -17,7 +17,6 @@ cas_3=[]
 cas_4=[]
 
 
-
 @app.route('/',methods=['GET','POST'])
 def get_tag():
 	if request.method=='POST':
@@ -35,7 +34,9 @@ def get_tag():
 			return json.dumps(tags)
 
 		except Exception as e:
-				return str(e)
+				dict = {}
+				dict["msg"] = str(e)
+				return json.dumps(dict)
 	else:
 		return render_template('index.html')
 
