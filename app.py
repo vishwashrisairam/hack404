@@ -21,6 +21,7 @@ cas_4=[]
 @app.route('/',methods=['GET','POST'])
 def get_tag():
 	if request.method=='POST':
+<<<<<<< HEAD
 		try:
 			file=request.files['file']
 			image = Image.open(file)
@@ -35,7 +36,23 @@ def get_tag():
 			return json.dumps(tags)
 
 		except Exception as e:
-				return str(e)
+				dict = {}
+				dict["response"] = str(e)
+				json.dumps(dict)
+=======
+		file=request.files['file']
+		image = Image.open(file)
+	#	image.save('image.jpg',quality=30)
+		image.save(os.path.join(app.config['UPLOAD_FOLDER'], "image.jpg"),quality=30)
+		result = clarifai_api.tag_images(open('image.jpg'))
+		tags = result["results"][0]["result"]["tag"]["classes"]
+		fire = fireData()
+		fire.tags=tags
+		fire.location=None
+		fire.save()
+		return json.dumps(tags)
+		
+>>>>>>> c905e15cf687bb9c64ea1d56fa4a9c80e8c5e9ca
 	else:
 		return render_template('index.html')
 
