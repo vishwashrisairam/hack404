@@ -31,22 +31,22 @@ def get_tag():
 			if bool(set(road_acc) & set(tags)):
 				fire = fireData()
 				fire.status="road"
-				#fire.tags=tags
-				fire.location=None
+				fire.NotifyTo=["ambulance","police"]
+				fire.location={"pin":{"location":{"lat":41.12},"lon":-71.34}}
 				fire.save()
 				print(fire)
 			elif bool(set(fire_acc) & set(tags)):
 				fire = fireData()
 				fire.status="fire"
-				#fire.tags=tags
-				fire.location=None
+				fire.NotifyTo=["fire brigade","ambulance"]
+				fire.location={"pin":{"location":{"lat":41.12},"lon":-71.34}}
 				fire.save()
 				print(fire)
 			elif bool(set(cas_3) & set(tags)):
 				fire = fireData()
 				fire.status="casualty3"
-				#fire.tags=tags
-				fire.location=None
+				fire.NotifyTo=["police","army"]
+				fire.location={"pin":{"location":{"lat":41.12},"lon":-71.34}}
 				fire.save()	
 				print(fire)
 			else: 
