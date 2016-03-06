@@ -103,7 +103,7 @@ def delete():
 	id=request.form['id']
 	fd=fireData.objects(id=id)
 	fd[0].delete()
-	return render_template("http://fireaccc.herokuapp.com/")
+	return render_template("http://fireacc.herokusapp.com/")
 
 @app.route('/filter',methods=['POST'])	
 def filter():
