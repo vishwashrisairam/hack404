@@ -1,0 +1,49 @@
+<!doctype html>
+    <title>Upload new File</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    
+   <!--
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+   -->    
+    
+    {%for d in data%}
+    <!--condition to check color for box-->
+    <!-- {% if d.status=="Fire" %}
+    		<div class="pricing-table group">
+    	{%elif d.status=="Road" %}
+    		<div class="pricing-table group ">
+    	{%else%}
+    		<div class="pricing-table group ">			
+    	 {%endif%} 	
+     -->
+    <div class="pricing-table group">
+      
+      <!-- PERSONAL -->
+      <div class="block personal fl">
+        <h2 class="title">{{d.id}}</h2>
+        <!-- CONTENT -->
+        <div class="content">
+          <p class="price">
+            
+            <span>Fire</span>
+            
+          </p>
+          
+        </div>
+        <!-- /CONTENT -->
+        <!-- FEATURES -->
+        <ul class="features">
+          <li><span class="fontawesome-cog"></span>{{d.location}}</li>
+          <li><span class="fontawesome-star"></span>{{d.time}}</li>
+          
+        </ul>
+        <!-- /FEATURES -->
+        <!-- PT-FOOTER -->
+        <div class="pt-footer">
+          <p>Host My Website</p>
+        </div>
+        <!-- /PT-FOOTER -->
+      </div>
+      <!-- /PERSONAL -->
+      
+      {%endfor%}
