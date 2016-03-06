@@ -7,7 +7,7 @@ from model import *
 from PIL import Image
 
 app=Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'tmp/'
+app.config['UPLOAD_FOLDER'] = 'uploads/'
 
 clarifai_api = ClarifaiApi("Chxllj0Bp9NVtfTBqZcYXOgrjvLiSrvi81NbhF5E","xA0eLr_QoIU39Z00VM5yrf_xSB__iTVEoDKz_eTL")
 
