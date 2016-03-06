@@ -67,7 +67,7 @@ def get_tag():
 			dict.append(local)
 		return render_template("dashboard.html",data=dict)
 
-@app.route('/delete',methods=['GET'])
+@app.route('/delete',methods=['POST'])
 def delete():
 	id=request.args.get('id')
 	fd=fireData.objects(id=id)
