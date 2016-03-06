@@ -74,7 +74,17 @@ def delete():
 	fd[0].delete()
 	return "success"
 
-		
+@app.route('/filter',methods=['POST'])	
+def filter():
+	issue=request.form['is'];
+	fd=fireData.objects(status=issue)
+	dict=[]
+	for f in fd:
+		temp={}
+		for keys in f:
+			temp[keys]=str(f[keys])
+		dict.append(temp)
+	return render_template("dashboard.html",data=dict)			
 
 
 port = int(os.environ.get('PORT', 5000))
