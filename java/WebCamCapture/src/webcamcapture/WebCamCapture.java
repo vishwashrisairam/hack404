@@ -18,9 +18,11 @@ import java.io.File;
 import java.io.IOException; 
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.Inet4Address;
 
 import org.apache.http.HttpEntity; 
 import org.apache.http.HttpResponse; 
+import org.apache.http.HttpVersion;
 import org.apache.http.client.ClientProtocolException; 
 import org.apache.http.client.HttpClient; 
 import org.apache.http.client.methods.HttpPost; 
@@ -30,6 +32,7 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody; 
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient; 
+import org.apache.http.params.CoreProtocolPNames;
 import org.apache.http.util.EntityUtils; 
         
 /**
@@ -65,7 +68,7 @@ public class WebCamCapture {
     	    		//System.out.println("OK");
                        // break;
                         
-                        request.request("https://fireacc.herokuapp.com/", "camera"+x+".jpg");
+                        request.request("https://fireacc.herokuapp.com/dash", "camera"+x+".jpg");
                         x++;
     	    	}
             try {
@@ -84,24 +87,34 @@ class httpRequestSend{
     void request(String url,String file_name) throws IOException{
         try {
             HttpClient httpclient = new DefaultHttpClient();
+            httpclient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
+
             HttpPost httppost = new HttpPost(url);
             
-            File fileToUse = new File(file_name);
-            //FileBody data = new FileBody(fileToUse,"image/jpeg");
+            
+            String file_path = "C:/Users/darshit/Documents/NetBeansProjects/WebCamCapture/"+file_name;
+            File fileToUse = new File(file_path);
+            FileBody data = new FileBody(fileToUse,"image/jpeg");
+           
+           
+            System.out.println(Inet4Address.getLocalHost().getHostAddress());
+            /*MultipartEntity mpEntity = new MultipartEntity();
             ContentBody cbFile = new FileBody(fileToUse, "image/jpeg");
-           // mpEntity.addPart("userfile", cbFile);
+            mpEntity.addPart("userfile", cbFile);*/
 
 
    // httppost.setEntity(mpEntity);
             //String file_type = "JPG" ;
             
             MultipartEntity reqEntity = new MultipartEntity();
-           // reqEntity.addPart("file_name", new StringBody( fileToUse.getName() ) ); 
-           // reqEntity.addPart("file_type", new StringBody(file_type));
-            //reqEntity.addPart("file", data);
-            reqEntity.addPart("file", cbFile);
+             ContentBody cbFile = new FileBody(fileToUse, "image/jpeg");
+            reqEntity.addPart("file", data);
+           
+            //reqEntity.addPart("file", cbFile);
             
             httppost.setEntity(reqEntity); 
+            //httppost.setEntity(mpEntity); 
+             System.out.println("executing request " + httppost.getRequestLine());
             HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
             InputStreamReader is;
@@ -135,6 +148,8 @@ class httpRequestSend{
             Logger.getLogger(httpRequestSend.class.getName()).log(Level.SEVERE, null, ex);
             System.out.printf("dsf\n");
         }
-    }         
+    }  
+    
+    
 }
 
