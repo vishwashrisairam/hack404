@@ -5,6 +5,6 @@ import datetime
 class fireData(DynamicDocument):
 	status = StringField()
 	location = GeoPointField()
-	NotifyTo = StringField()
+	NotifyTo = ListField(StringField())
 	time = DateTimeField(default=datetime.datetime.now)
 
