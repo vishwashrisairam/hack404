@@ -58,14 +58,22 @@ def get_tag():
 				dict["msg"] = str(e)
 				return json.dumps(dict)
 	else:
-		return render_template('index.html')
-		# dict=[]
-		# for fd in fireData.objects():
-		# 	local={}
-		# 	for keys in fd:
-		# 		local[keys]=str(fd[keys])
-		# 	dict.append(local)
-		# return render_template("dashboard.html",data=dict)		
+		#return render_template('index.html')
+		dict=[]
+		for fd in fireData.objects():
+			local={}
+			for keys in fd:
+				local[keys]=str(fd[keys])
+			dict.append(local)
+		return render_template("dashboard.html",data=dict)
+
+@app.route('/delete',methods=['POST'])
+def delete():
+	id=request.args.get('id')
+	fd=fireData.objects(id=id)
+	fd[0].delete()
+	return "success"
+
 		
 
 
