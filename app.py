@@ -69,7 +69,7 @@ def get_tag():
 
 @app.route('/delete',methods=['POST'])
 def delete():
-	id=request.args.form['id']
+	id=request.form['id']
 	fd=fireData.objects(id=id)
 	fd[0].delete()
 	return "success"
