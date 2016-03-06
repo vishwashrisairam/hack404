@@ -3,8 +3,8 @@ from mongoengine import *
 import datetime
 
 class fireData(DynamicDocument):
-	tags = ListField(StringField())
+	status = StringField()
 	location = GeoPointField()
-	NotifyTo = StringField()
+	NotifyTo = ListField(StringField())
 	time = DateTimeField(default=datetime.datetime.now)
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/2.css') }}">
+</head>
+<body onload="Loader()">
+
+<div id="container">
+  <div class="stick"></div>
+  <div class="stick"></div>
+  <div class="stick"></div>
+  <div class="stick"></div>
+  <div class="stick"></div>
+  <div class="stick"></div>
+  
+  <h1>Loading...</h1>
+  
+</div>
+<script type="text/javascript">
+	function Loader() {
+    setTimeout(function(){ window.location.href="http://fireacc.herokuapp.com/dash"; }, 1500);
+}
+				
+</script>
+
+</body>
+</html>
