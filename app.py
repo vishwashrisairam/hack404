@@ -33,11 +33,16 @@ fire_acc=["flame","smoke","danger","heat","burn"]
 cas_3=["protest","rally","battle","rebelion"]
 cas_4=[]
 
-@app.route('/test')
+@app.route('/test',methods=['GET'])
 def test():
 	return render_template("index.html")
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/')
+def index():
+	return render_template("1.html")
+
+
+@app.route('/dash',methods=['GET','POST'])
 def get_tag():
 	if request.method=='POST':
 		try:
@@ -91,7 +96,7 @@ def get_tag():
 			for keys in fd:
 				local[keys]=str(fd[keys])
 			dict.append(local)
-		return render_template("1.html",data=dict)
+		return render_template("dashboard.html",data=dict)
 
 @app.route('/delete',methods=['POST'])
 def delete():
