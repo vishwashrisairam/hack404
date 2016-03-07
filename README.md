@@ -19,7 +19,7 @@ FireAcc is a casualty detection(casualties like road accidents,fire breakout,etc
 - The hack assumes cctv or other surveillance cameras for detecting the casualty . So we used **OpenCV** libraries available for **Java** to simulate
 the activity of cctv camera. It converts the webcam of laptop as a camera continuously capturing images after a particular timeframe and 
 sending the images to the server.
-- The server is developed using  **Flask**. The image received is sent for processing using the api of **Clarifai** which does processes the 
+- The server is developed using  **Flask**. The image received is sent for processing using the api of **Clarifai** which  processes the 
 image and extracts features and tags relevant to the picture.
 - The tags and features returned by the api are compared with the pretrained data(tags) for selecting whom to notify . Some cases are:
     * road accidents :- ambulance and police should be notified
