@@ -94,7 +94,7 @@
       <th>Time</th>
       <th>Location</th>
       <th>Notify To</th>
-      <th>Delete</th>
+      <th>Type</th>
       
       
      </tr>
@@ -105,11 +105,12 @@
       <td>{{d.time}}</td>
       <td>{{d.location}}</td>
       <td>{{d.NotifyTo}}</td>
+      <td>{{d.status}}</td>
   <td>
-  <form action="http://fireacc.herokuapp.com/delete" method="POST"> 
-  <input type="submit" value="delete"/>
-  <input type="hidden" value="{{d.id}}" name="id">
-  </form> 
+  <!--<form action="http://fireacc.herokuapp.com/delete" method="POST"> -->
+  <!--<input type="submit" value="delete"/>-->
+  <!--<input type="hidden" value="{{d.id}}" name="id">-->
+  <!--</form> -->
 </td>
     </tr>
      {% endfor %}
