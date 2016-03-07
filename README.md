@@ -1,8 +1,7 @@
 # hack404 - FireAcc
 
 ## About FireAcc
-FireAcc is a casualty detection(casualties like road accidents,fire breakout,etc) and notification hack aimed at improving the notification to concerned
-authorities(ambulance,fire brigade,police station,etc) by providing real time notification on occurence of any casualty.
+FireAcc is a casualty detection(casualties like road accidents,fire breakout,etc) and notification hack aimed at improving the notification delivery to the concerned authorities(ambulance,fire brigade,police station,etc) by providing instantaneous notification on occurence of any casualty.
   
 ##Team members
 - V Vishwashri Sairam
