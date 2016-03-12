@@ -15,7 +15,7 @@ FireAcc is a casualty detection(casualties like road accidents,fire breakout,etc
 - Twillio api
 - Heroku 
   
-![Alt text](/static/images/fireacc.jpg?raw=true "Optional Title")
+![ScreenShot](https://raw.github.com/vishwashrisairam/hack404/master/static/images/fireacc1.jpg)
 
 ## Description 
 - The hack assumes cctv or other surveillance cameras for detecting the casualty . So we used **OpenCV** libraries available for **Java** to simulate
